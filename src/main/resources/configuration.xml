@@ -6,7 +6,7 @@
 <configuration>
 
     <typeAliases>
-        <typeAlias alias="Article" type="com.app.article.Article" />
+        <typeAlias alias="Article" type="com.app.Article" />
     </typeAliases>
 
     <environments default="development">

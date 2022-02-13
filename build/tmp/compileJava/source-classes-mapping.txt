@@ -1,4 +1,8 @@
 com/config/SessionFactory.java
  com.config.SessionFactory
+com/app/ArticleDao.java
+ com.app.ArticleDao
+com/app/Article.java
+ com.app.Article
 com/app/Main.java
  com.app.Main
