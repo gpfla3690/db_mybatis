@@ -104,6 +104,21 @@ public class Main {
                         session.commit();
                         break;
 
+                    case "detail":
+                        System.out.print("열람하고자 하는 게시글 번호를 입력해주세요 :");
+                        String detailArticleId = sc.nextLine();
+
+                        Article detailArticle = articleMysql.findById(Integer.parseInt(detailArticleId));
+
+                        if ( isNull(detailArticle) ) {
+                            break;
+                        }
+
+                        System.out.println(" :: 선택하신 글 :: ");
+                        System.out.println(detailArticle);
+                        session.commit();
+                        break;
+
                     default:
                         break;
                 }
