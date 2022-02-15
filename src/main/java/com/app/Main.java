@@ -3,6 +3,7 @@ package com.app;
 import com.config.SessionFactory;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -86,6 +87,21 @@ public class Main {
                         session.commit();
 
                         System.out.println(deleteArticleId + "번 글이 삭제되었습니다!");
+                        break;
+
+                    case "list":
+                        List<Article> articleList = articleMysql.findAll();
+
+                        System.out.println(" :: 현재 작성된 게시물 목록 :: ");
+
+                        System.out.println("|    번호    |    제목    |    내용    |");
+
+                        for (Article a : articleList) {
+                            System.out.println("|    " + a.getId() + "    |    " + a.getTitle() + "    |    " + a.getBody() + "    |");
+                        }
+
+                        System.out.println(" :: 게시글 목록 끝 :: ");
+                        session.commit();
                         break;
 
                     default:

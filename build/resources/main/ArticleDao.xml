@@ -37,4 +37,9 @@
         WHERE id = #{id}
     </delete>
 
+    <select id="findAll" resultMap="result">
+        SELECT *
+        FROM article;
+    </select>
+
 </mapper>
