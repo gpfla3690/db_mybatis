@@ -32,4 +32,9 @@
         WHERE id = #{id}
     </update>
 
+    <delete id="delete" parameterType="int">
+        DELETE from article
+        WHERE id = #{id}
+    </delete>
+
 </mapper>

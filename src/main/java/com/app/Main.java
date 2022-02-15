@@ -74,6 +74,20 @@ public class Main {
                         System.out.println("변경이 완료 되었습니다!");
                         break;
 
+                    case "delete":
+                        System.out.print("삭제하고자 하는 글 번호를 입력해 주세요 : ");
+                        String deleteArticleId = sc.nextLine();
+
+                        if ( isNull(articleMysql.findById(Integer.parseInt(deleteArticleId))) ) {
+                            break;
+                        }
+
+                        articleMysql.delete(Integer.parseInt(deleteArticleId));
+                        session.commit();
+
+                        System.out.println(deleteArticleId + "번 글이 삭제되었습니다!");
+                        break;
+
                     default:
                         break;
                 }
