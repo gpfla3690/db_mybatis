@@ -18,4 +18,18 @@
         VALUES (#{title}, #{body})
     </insert>
 
+    <select id="findById" parameterType="int" resultMap="result">
+        SELECT *
+        FROM article
+        WHERE id = #{id}
+    </select>
+
+    <update id="modify" parameterType="Article">
+        UPDATE article
+        SET title = #{title},
+        body = #{body},
+        updateDate = NOW()
+        WHERE id = #{id}
+    </update>
+
 </mapper>

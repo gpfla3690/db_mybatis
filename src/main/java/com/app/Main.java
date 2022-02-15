@@ -47,14 +47,51 @@ public class Main {
                         session.commit();
                         break;
 
+                    case "modify":
+                        System.out.print("수정하고자 하는 글 번호를 입력해주세요 : ");
+                        String modifyArticleId = sc.nextLine();
+
+                        Article modifyArticle = articleMysql.findById(Integer.parseInt(modifyArticleId));
+
+                        if ( isNull(modifyArticle) ) {
+                            break;
+                        }
+
+                        System.out.println(":: 선택하신 글 :: ");
+                        System.out.println(modifyArticle);
+
+                        System.out.print("새로운 제목 입력 : ");
+                        String updateTitle = sc.nextLine();
+                        modifyArticle.setTitle(updateTitle);
+
+                        System.out.print("새로운 내용 입력 : ");
+                        String updateBody = sc.nextLine();
+                        modifyArticle.setBody(updateBody);
+
+                        articleMysql.modify(modifyArticle);
+                        session.commit();
+
+                        System.out.println("변경이 완료 되었습니다!");
+                        break;
+
                     default:
                         break;
                 }
             }catch (Exception e){
+                System.out.println(e.getMessage());
                 System.out.println("잘못된 입력입니다.");
             }
         }
 
+    }
+
+    public static boolean isNull(Object o) {
+        if ( o == null ) {
+            System.out.println("잘못된 입력입니다.");
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
